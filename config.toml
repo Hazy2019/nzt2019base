@@ -1,5 +1,5 @@
 baseURL = "https://hazy2019.github.io/"
 languageCode = "en-us"
 title = "My New Hugo Site"
-theme = "Mainroad"
+theme = "hugo-clarity"
 publishdir = "Hazy2019.github.io"
