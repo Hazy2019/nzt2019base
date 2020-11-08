@@ -51,11 +51,11 @@
 
 # Recent Posts widget
 - id: recent_title
-  translation: "近期文章"
+  translation: "最新动态"
 
 # Social widget
 - id: social_title
-  translation: "社交"
+  translation: "联系我"
 
 # Tags List widget
 - id: tags_title
