@@ -17,3 +17,6 @@ menu: main
  - delimiter
  - bundle
  - anchor
+ - dangle
+ - populate
+ - instrumentation
