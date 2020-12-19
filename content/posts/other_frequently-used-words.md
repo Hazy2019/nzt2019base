@@ -9,7 +9,7 @@ tags:
 menu: main
 ---
 
-# en words used in coding
+# some words used in coding
  - toggle
  - quote
  - snippet
@@ -20,5 +20,4 @@ menu: main
  - dangle
  - populate
  - instrumentation
- - xxxxxxxxx
- - yyyyyyyyy
+ - increases monotonically 单调递增 
