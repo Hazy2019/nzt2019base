@@ -7,7 +7,7 @@ categories:
 tags:
   - "hugo"
 menu: main # Optional, add page to a menu. Options: main, side, footer
-thumbnail: "posts/ss1.png"
+thumbnail: {{ $image := resources.Get "posts/ss1.png"; $image := resources.Get "posts/ss1.png"  }} 
 ---
 
 ### 杂1
@@ -19,6 +19,6 @@ thumbnail: "posts/ss1.png"
   - 拒绝意义追问是怯懦的表现
   - 幸福不过是欲望的暂时停止。我们就像田野上的羔羊，在屠夫的注视下恣意欢愉。
 
-{{ $image := resources.Get "posts/ss1.png" }}
-{{ $image := $image.Fit "600x400" }}
+
+{{ x}}
 
