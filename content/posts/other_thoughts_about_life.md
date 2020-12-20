@@ -18,3 +18,7 @@ thumbnail: "posts/ss1.png"
   - 唯有自杀才是唯一值得探讨的问题——加缪
   - 拒绝意义追问是怯懦的表现
   - 幸福不过是欲望的暂时停止。我们就像田野上的羔羊，在屠夫的注视下恣意欢愉。
+
+{{ $image := resources.Get "posts/ss1.png" }}
+{{ $image := $image.Fit "600x400" }}
+
