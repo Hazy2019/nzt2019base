@@ -7,7 +7,6 @@ categories:
 tags:
   - "hugo"
 menu: main # Optional, add page to a menu. Options: main, side, footer
-thumbnail: {{ $image := resources.Get "posts/ss1.png"; $image := resources.Get "posts/ss1.png"  }} 
 ---
 
 ### 杂1
@@ -18,7 +17,4 @@ thumbnail: {{ $image := resources.Get "posts/ss1.png"; $image := resources.Get "
   - 唯有自杀才是唯一值得探讨的问题——加缪
   - 拒绝意义追问是怯懦的表现
   - 幸福不过是欲望的暂时停止。我们就像田野上的羔羊，在屠夫的注视下恣意欢愉。
-
-
-{{ x}}
 
