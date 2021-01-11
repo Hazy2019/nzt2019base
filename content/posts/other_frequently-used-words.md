@@ -20,4 +20,17 @@ menu: main
  - dangle
  - populate
  - instrumentation
- - increases monotonically 单调递增 
+ - increases monotonically 单调递增
+ - intuitive
+ - decent
+ - preceding
+ - durable
+ - deterministic
+ - recall
+ - sufficient
+ - sketch
+ - contradiction
+ - idempotent
+ - inevitably
+ - incorporate
+ - provision

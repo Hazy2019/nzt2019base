@@ -20,11 +20,11 @@ widgets: # Enable sidebar widgets in given order per page
 
 > 首先带几个疑问:
 > 1. commit和apply分别指什么？
+> 1. commitIndex lastApplied为何不需要持久化？
 > 1. 收到RequestVote RPC的Server在什么情况下会Grant Vote?
-> 1. raft-log必须要顺序apply吗？为什么？
 > 1. 每条raft-log是否都需要对应的termId？为什么？
 > 1. raft-group的配置变更是怎么做的？
-> 1.
+> 1. raft-log必须要顺序apply吗？为什么？
 
 ## raft算法笔记
 
