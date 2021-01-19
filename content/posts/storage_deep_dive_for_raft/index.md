@@ -1,6 +1,6 @@
 ---
 title: "分布式笔记 - Raft(入门)"
-date: 2020-12-19T21:20:49
+date: 2017-04-19T21:20:49
 description: “raft算法深入"
 categories:
   - "分布式"
@@ -173,6 +173,17 @@ Ctx {
     leader定期发起.(即使没有新的写入，也需要发送空包到follower，避免follower发起选举)
 - 怎么做
     - leader:
+        ```
+        RPC-AppendEntries(
+            currentTerm,
+            leaderId,
+            prevLogIndex,  // log index of the log which is right before log-entries[0]
+            prevLogTerm,   // log term of the log which is right before log-entries[0]
+            log-entries[],
+            leaderCommit   // to tell the follower which log is ok-to-apply 
+        )
+        ```
+
 
     - follower:
 
