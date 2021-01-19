@@ -21,7 +21,7 @@ widgets: # Enable sidebar widgets in given order per page
 
 ### Q&A
 ##### 线性一致性？
-个人认为，分布式系统的一致性与多核内存模型中涉及的一致性异曲同工，所以分布式系统的线性一致性我认为可以直接采用多核系统的线性一致性定义。
+个人认为，分布式系统的一致性与多核内存模型中涉及的一致性异曲同工，所以分布式系统的线性一致性我认为可以参考类似多核系统的线性一致性定义来理解。
 
 ##### `fsm: finite-state-machine`
 个人理解为有状态分布式服务的每个独立实例（进程+数据），本质上都可以是个有限状态机（fsm）
@@ -46,14 +46,16 @@ widgets: # Enable sidebar widgets in given order per page
 
 ##### <span id="request_vote_param_myth">RPC-RequestVote</span>里，为什么带了最后一个日志项（log entry）的下标和它的term（而不是commitIndex或applyIndex对应的日志项）
 
-##### follower的voteFor如何维护的？grant某个候选者之后，voteFor如何处理？（什么时候重置为null，否则）
+##### voteFor如何维护的？（例如: 什么时候重置为null? 当`follower`grant了某个候选者之后，voteFor如何处理？）
+这个问题论文里并没有具体进行讨论（可能只是个实现细节，没有讨论的必要）
 
-##### follower的currentTerm如何维护的？在选举阶段，grant某个候选者是否需要修改自己的currentTerm?如果选举阶段不修改，那么连续两次选举（上一次SplitVote）如何处理？
+
+##### currentTerm如何维护的？（例如：在选举阶段，当`follower`grant某个候选者之后，是否需要修改自己的currentTerm? 如果选举阶段不修改，那么连续两次选举（上一次SplitVote）如何处理？）
 
 ##### 只需要放写操作进raft-log吗？
 直觉上，读操作并不会改变fsm的状态，所以(在没check论文前)个人感觉上<sup>待验证</sup>，只需要保证读leader的即可保证强一致（线性一致性），从某个follower读则是最终一致
 
-小论文<sup>[1]</sup>中似乎没有提及只读优化，而详细版论文中<sup>[2]</sup>中有专门一章讨论只读操作。
+<sup>[2]</sup>中有专门一章讨论只读优化问题。
 
 
 
@@ -171,27 +173,49 @@ Ctx {
     new leader  --> old leader
 - 触发
     leader定期发起.(即使没有新的写入，也需要发送空包到follower，避免follower发起选举)
+
+- 日志项匹配性质：
+    - 两个日志项的term和index相同，就认为这两个日志项一致（或称之为“相同”`the same`）。
+    - 若两份日志内某个日志项一致，那么在该日志项之前的所有日志项也一致。
+
+- 日志冲突的处理原则：
+    - 日志冲突的定义：某个日志项的index相同，但term却不同。
+    - 以leader的日志为准，最终达到的效果：follower找到自己日志里最后一个与leader相匹配的日志项（其index记为l1），清除掉在其之后的所有日志项，leader最后一个日志项index记为l2, follower将从leader拷贝[l1+1,l2]的日志项。
+
 - 怎么做
     - leader:
         ```
-        RPC-AppendEntries(
-            currentTerm,
-            leaderId,
-            prevLogIndex,  // log index of the log which is right before log-entries[0]
-            prevLogTerm,   // log term of the log which is right before log-entries[0]
-            log-entries[],
-            leaderCommit   // to tell the follower which log is ok-to-apply 
-        )
+        for each x in followers:
+            选取一定范围内的日志（nextIndex）： collect log-entries between (nextIndex[x],my last log-entry]
+
+            RPC-AppendEntries(
+                currentTerm,
+                leaderId,
+                prevLogIndex,  // log index of the log which is right before log-entries[0]
+                prevLogTerm,   // log term of the log which is right before log-entries[0]
+                log-entries[], // 
+                leaderCommit   // to tell the follower which log is ok-to-apply 
+            )
         ```
-
-
+- 收到后的行为：
     - follower:
+        - 收到一个RPC-AppendEntries，找到自己日志中的prevLogIndex所在日志项，check下是否匹配，若不匹配或不存在，返回false,leader将回退nextIndex进行回溯。
+        
+        - 减少follower因日志项部匹配拒绝RPC的次数的优化：
 
-    - candidate:
-
-    - old leader:
+    - `candidate`/`old leader`在收到一个合法RPC-AppendEntries后，还涉及角色状态的转换。
 
 
+- 
+### 
+
+### 要点总结
+- 日志项匹配性质（Log Matching Property）
+    - If two entries in different logs have the same index
+and term, then they store the same command.
+    - If two entries in different logs have the same index
+and term, then the logs are identical in all preceding
+entries.
 
 
 ### 引用
