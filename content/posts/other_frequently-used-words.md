@@ -1,5 +1,5 @@
 ---
-title: "备忘:Commit Message Words"
+title: "cheatsheet for FUW"
 date: 2020-11-07T21:20:49
 description: "usages"
 categories:
@@ -34,3 +34,8 @@ menu: main
  - inevitably
  - incorporate
  - provision
+ - complement 
+ 
+ cplusplus concepts:
+ - pod types
+ - non-trivial types
