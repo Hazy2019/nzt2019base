@@ -3,7 +3,7 @@ title: "启用一个新blog（Hugo试用）"
 date: 2020-11-07T21:26:49+08:00
 description: "usages"
 categories:
-  - "CheatSheets"
+  - "其他"
 tags:
   - "hugo"
 menu: main # Optional, add page to a menu. Options: main, side, footer

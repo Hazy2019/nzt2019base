@@ -3,9 +3,9 @@ title: "杂谈"
 date: 2020-12-20T07:26:49+08:00
 description: "杂感"
 categories:
-  - "杂谈"
+  - "其他"
 tags:
-  - "hugo"
+  - "杂谈"
 menu: main # Optional, add page to a menu. Options: main, side, footer
 ---
 

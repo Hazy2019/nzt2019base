@@ -3,9 +3,9 @@ title: "cheatsheet for FUW"
 date: 2020-11-07T21:20:49
 description: "usages"
 categories:
-  - "CheatSheets"
+  - "其他"
 tags:
-  - "other"
+  - "其他"
 menu: main
 ---
 
@@ -20,6 +20,10 @@ menu: main
  - dangle
  - populate
  - instrumentation
+ - increases monotonically 单调递增 
+ - dense 密集
+ - subtle 巧妙
+ - preceding 在..之前
  - increases monotonically 单调递增
  - intuitive
  - decent
