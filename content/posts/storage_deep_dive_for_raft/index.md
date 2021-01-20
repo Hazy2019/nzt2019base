@@ -1,5 +1,5 @@
 ---
-title: "分布式笔记 - Raft(入门)"
+title: "分布式笔记 - Raft(入门论文)"
 date: 2017-04-19T21:20:49
 description: “raft算法深入"
 categories:
@@ -94,7 +94,12 @@ Ctx {
 }
 
 ```
-
+#### 满足原则
+> - Election Safety: at most one leader can be elected in a given term. §5.2
+> - Leader Append-Only: a leader never overwrites or deletes entries in its log; it only appends new entries. §5.3
+> - Log Matching: if two logs contain an entry with the same index and term, then the logs are identical in all entries up through the given index. §5.3
+> - Leader Completeness: if a log entry is committed in a given term, then that entry will be present in the logs of the leaders for all higher-numbered terms. §5.4
+> - State Machine Safety: if a server has applied a log entry at a given index to its state machine, no other server will ever apply a different log entry for the same index. §5.4.3
 
 #### leader选举
 * 触发：
@@ -211,23 +216,28 @@ Ctx {
         - 收到一个RPC-AppendEntries，找到自己日志中的prevLogIndex所在日志项，check下是否匹配，若不匹配或不存在，返回false,leader将回退nextIndex进行回溯
         - 减少follower因日志项部匹配拒绝RPC的次数的优化：
         
-        下图：
-        
-        {{< figure src="../../resources/12.png" title="s0-leader s4-follower" >}}
+            下图： 
+            {{< figure src="../../resources/12.png" title="s0-leader s4-follower" >}}
+
+            follower在出现冲突时回复内容除了false以外，增加返回冲突的日志项的term以及该term下的第一个日志项的下标.
+
+            >For example,when rejecting an AppendEntries request, the follower can include the term of the conflicting entry and the first index it stores for that term.
 
     - `candidate`/`old leader`在收到一个合法RPC-AppendEntries后，还涉及角色状态的转换。
 
+#### 关于只读命令的讨论
+可以不进raft-log,但需要2个额外措施保证线性一致性：
+1. 新leader当选之后，在本任期内至少commit一次（若没有，就commit一个空操作，需要落入raft-log的，不是心跳包）后才能读.（也就是所谓的readIndex，参考资料很多，这里列一个：https://zhuanlan.zhihu.com/p/143239437）
+> The Leader Completeness Property guarantees that a leader has all committed entries, but at the start of its term, it may not know which those are. To find out, it needs to commit an entry from its term. Raft handles this by having each leader commit a blank no-op entry into the log at the start of its term.
 
-- 
-### 
+2. 为了防止读请求落到某个旧leader，还是需要一次半数以上心跳才能回应读请求.
+> Second, a leader must check whether it has been deposed before processing a read-only request (its information may be stale if a more recent leader has been elected). Raft handles this by having the leader exchange heart-beat messages with a majority of the cluster before responding to read-only requests.
+
+关于lease read: 
+> Alternatively, the leader could rely on the heartbeat mechanism to provide a form of lease [9], but this would rely on timing for safety (it assumes bounded clock skew).
 
 ### 要点总结
-- 日志项匹配性质（Log Matching Property）
-    - If two entries in different logs have the same index
-and term, then they store the same command.
-    - If two entries in different logs have the same index
-and term, then the logs are identical in all preceding
-entries.
+- 5个特性
 
 
 ### 引用
