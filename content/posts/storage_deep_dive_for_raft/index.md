@@ -206,7 +206,7 @@ Ctx {
         
         - 减少follower因日志项部匹配拒绝RPC的次数的优化：
 
-        {{< figure src="{{ (.Resources.GetMatch "12.png").Content | base64Encode }}" title="s0-leader s4-follower" >}}
+        {{< figure src="../../resources/12.png" title="s0-leader s4-follower" >}}
 
     - `candidate`/`old leader`在收到一个合法RPC-AppendEntries后，还涉及角色状态的转换。
 
