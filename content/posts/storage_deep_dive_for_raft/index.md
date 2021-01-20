@@ -16,6 +16,9 @@ widgets: # Enable sidebar widgets in given order per page
   - "search"
   - "recent"
   - "taglist"
+resources:
+- name: "12"
+  src: "12.png"
 ---
 
 
@@ -203,6 +206,8 @@ Ctx {
         
         - 减少follower因日志项部匹配拒绝RPC的次数的优化：
 
+        {{< figure src="{{ (.Resources.GetMatch "12.png").Content | base64Encode }}" title="s0-leader s4-follower" >}}
+
     - `candidate`/`old leader`在收到一个合法RPC-AppendEntries后，还涉及角色状态的转换。
 
 
@@ -220,4 +225,5 @@ entries.
 
 ### 引用
 [1] raft小论文: In Search of an Understandable Consensus Algorithm
+
 [2] CONSENSUS: BRIDGING THEORY AND PRACTICE
