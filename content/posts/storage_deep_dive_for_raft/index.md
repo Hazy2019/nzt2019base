@@ -182,8 +182,13 @@ Ctx {
     - 日志冲突的定义：某个日志项的index相同，但term却不同。
     - 以leader的日志为准，最终达到的效果：follower找到自己日志里最后一个与leader相匹配的日志项（其index记为l1），清除掉在其之后的所有日志项，leader最后一个日志项index记为l2, follower将从leader拷贝[l1+1,l2]的日志项。
 
-- 怎么做
+- leader上commitIndex的维护原则：
+    - 更新commitIndex到一个新值（如Ln），必须满足的条件：1). Ln的term是以当前term，2) Ln到达了大多数follower.
+    - 需要1）的原因（论文<sup>[1]</sup>内做了讨论）：在leader多次(E.G. 2次)变更后（A-->X-->A），可能出现继续复制上一个term的日志，最终上一个term日志将到达大多数节点，但这时不能更新commitIndex(原因是此时可能有其他节点包含相同index但term值更大的日志，也就是更新的日志，若此时更新并且出现切主，会导致数据不一致出现)，需要在本次term内的日志到达多数节点后，间接地把上一个term日志标为commit.
+
+- 行为
     - leader:
+      - 对每个follower选取一定范围的日志项，发送RPC:
         ```
         for each x in followers:
             选取一定范围内的日志（nextIndex）： collect log-entries between (nextIndex[x],my last log-entry]
@@ -197,10 +202,10 @@ Ctx {
                 leaderCommit   // to tell the follower which log is ok-to-apply 
             )
         ```
-- 收到后的行为：
+        - nextIndex维护
+        - commitIndex维护
     - follower:
-        - 收到一个RPC-AppendEntries，找到自己日志中的prevLogIndex所在日志项，check下是否匹配，若不匹配或不存在，返回false,leader将回退nextIndex进行回溯。
-        
+        - 收到一个RPC-AppendEntries，找到自己日志中的prevLogIndex所在日志项，check下是否匹配，若不匹配或不存在，返回false,leader将回退nextIndex进行回溯
         - 减少follower因日志项部匹配拒绝RPC的次数的优化：
 
     - `candidate`/`old leader`在收到一个合法RPC-AppendEntries后，还涉及角色状态的转换。
@@ -219,5 +224,7 @@ entries.
 
 
 ### 引用
+
 [1] raft小论文: In Search of an Understandable Consensus Algorithm
+
 [2] CONSENSUS: BRIDGING THEORY AND PRACTICE
