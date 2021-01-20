@@ -210,7 +210,9 @@ Ctx {
     - follower:
         - 收到一个RPC-AppendEntries，找到自己日志中的prevLogIndex所在日志项，check下是否匹配，若不匹配或不存在，返回false,leader将回退nextIndex进行回溯
         - 减少follower因日志项部匹配拒绝RPC的次数的优化：
-
+        
+        下图：
+        
         {{< figure src="../../resources/12.png" title="s0-leader s4-follower" >}}
 
     - `candidate`/`old leader`在收到一个合法RPC-AppendEntries后，还涉及角色状态的转换。
