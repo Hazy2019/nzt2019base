@@ -6,7 +6,6 @@ categories:
   - "rocksdb"
 tags:
   - "rocksdb"
-menu: main # Optional, add page to a menu. Options: main, side, footer
 lead: "一些rocksdb相关问题记录" # Lead text
 comments: false # Enable Disqus comments for specific page
 authorbox: true # Enable authorbox for specific page

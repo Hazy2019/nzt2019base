@@ -7,7 +7,6 @@ categories:
 tags:
   - "systemtap"
   - "debug"
-menu: main
 lead: how to use systemtap(post 1)
 comments: false
 authorbox: true
