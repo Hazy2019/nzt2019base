@@ -6,7 +6,7 @@ categories:
   - "其他"
 tags:
   - "hugo"
-menu: main # Optional, add page to a menu. Options: main, side, footer
+
 
 thumbnail: "resources/rd3pjw.jpg" # Thumbnail image
 lead: "Example lead - highlighted near the title" # Lead text

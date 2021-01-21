@@ -1,13 +1,11 @@
 ---
-title: "using systemtap to track your user-space program - 1"
+title: "using systemtap to track your user-space program - 2_return"
 date: 2019.11.1T21:26:49+08:00
-description: how to use systemtap(post 1)
+description: how to use systemtap(post 2)
 categories:
   - "debugging"
 tags:
   - "systemtap"
-  - "debug"
-menu: main
 lead: how to use systemtap(post 1)
 comments: false
 authorbox: true
@@ -16,5 +14,5 @@ toc: true
 sidebar: "right"
 ---
 
-## 
+## x
 

@@ -6,7 +6,6 @@ categories:
   - "其他"
 tags:
   - "其他"
-menu: main
 ---
 
 # some words used in coding

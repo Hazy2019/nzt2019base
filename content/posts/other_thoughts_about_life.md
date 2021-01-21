@@ -6,7 +6,7 @@ categories:
   - "其他"
 tags:
   - "杂谈"
-menu: main # Optional, add page to a menu. Options: main, side, footer
+
 ---
 
 ### 杂1
