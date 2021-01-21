@@ -6,7 +6,6 @@ categories:
   - "c++"
 tags:
   - "shared_ptr"
-menu: main # Optional, add page to a menu. Options: main, side, footer
 lead: "跨线程同步对象如何设计/实现" # Lead text
 comments: false # Enable Disqus comments for specific page
 authorbox: true # Enable authorbox for specific page
