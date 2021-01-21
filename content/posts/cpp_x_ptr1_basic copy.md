@@ -1,5 +1,5 @@
 ---
-title: "cpp_xptr_part1"
+title: "智能指针1 基本使用"
 date: 2017-12-07T21:26:49+08:00
 description: ""
 categories:
