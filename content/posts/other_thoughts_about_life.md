@@ -1,7 +1,7 @@
 ---
-title: "杂谈"
+title: "随想"
 date: 2020-12-20T07:26:49+08:00
-description: "杂感"
+description: "RANDOM THOUGHTS"
 categories:
   - "其他"
 tags:

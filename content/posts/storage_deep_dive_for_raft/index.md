@@ -48,18 +48,17 @@ resources:
 >When the entry has been safely replicated (as described below), the leader applies the entry to its state machine and returns the result of that execution to the client.
 
 ##### <span id="request_vote_param_myth">RPC-RequestVote</span>里，为什么带了最后一个日志项（log entry）的下标和它的term（而不是commitIndex或applyIndex对应的日志项）
+xuya
 
 ##### voteFor如何维护的？（例如: 什么时候重置为null? 当`follower`grant了某个候选者之后，voteFor如何处理？）
-这个问题论文里并没有具体进行讨论（可能只是个实现细节，没有讨论的必要）
-
+这个问题论文里并没有具体进行讨论 
 
 ##### currentTerm如何维护的？（例如：在选举阶段，当`follower`grant某个候选者之后，是否需要修改自己的currentTerm? 如果选举阶段不修改，那么连续两次选举（上一次SplitVote）如何处理？）
+这个问题论文里并没有具体进行讨论
+
 
 ##### 只需要放写操作进raft-log吗？
 直觉上，读操作并不会改变fsm的状态，所以(在没check论文前)个人感觉上<sup>待验证</sup>，只需要保证读leader的即可保证强一致（线性一致性），从某个follower读则是最终一致
-
-<sup>[2]</sup>中有专门一章讨论只读优化问题。
-
 
 
 ### raft算法描述

@@ -7,7 +7,7 @@ categories:
 tags:
   - "shared_ptr"
 menu: main # Optional, add page to a menu. Options: main, side, footer
-lead: "跨线程同步对象如何设计/实现" # Lead text
+lead: "智能指针" # Lead text
 comments: false # Enable Disqus comments for specific page
 authorbox: true # Enable authorbox for specific page
 pager: true # Enable pager navigation (prev/next) for specific page
