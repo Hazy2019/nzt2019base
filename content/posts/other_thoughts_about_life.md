@@ -1,6 +1,6 @@
 ---
 title: '随想'
-date: 2017-12-20T07:26:49+08:00
+date: 2011-12-20T07:26:49+08:00
 description: 'RANDOM THOUGHTS'
 categories:
   - '其他'

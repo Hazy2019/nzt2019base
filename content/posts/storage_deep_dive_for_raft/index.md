@@ -1,6 +1,6 @@
 ---
-title: "分布式笔记 - Raft(入门论文)"
-date: 2017-04-19T21:20:49
+title: "分布式笔记 - Raft（1）"
+date: 2018-04-19T21:20:49
 description: “raft算法深入"
 categories:
   - "分布式"
@@ -58,7 +58,6 @@ xuya
 
 ##### 只需要放写操作进raft-log吗？
 直觉上，读操作并不会改变fsm的状态，所以(在没check论文前)个人感觉上<sup>待验证</sup>，只需要保证读leader的即可保证强一致（线性一致性），从某个follower读则是最终一致
-
 
 ### raft算法描述
 
@@ -170,7 +169,6 @@ Ctx {
 
     - voteFor和currentTerm在这里的维护方式并没有给出，可能不是特别重要，属于实现细节，仅需满足以下这个即可。个人倾向于currentTerm需在Grant Vote时也更新为candidateId的term，否则如果出现split-vote，下一次选举就没法进行了<sup>待验证</sup>。
       > Each server will vote for at most one candidate in a given term.
-- 选举策略的安全性
     
 #### log复制
 - RPC-AppendEntries 方向

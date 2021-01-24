@@ -1,6 +1,6 @@
 ---
 title: '启用一个新blog（Hugo试用）'
-date: 2017-11-07T21:26:49+08:00
+date: 2011-11-07T21:26:49+08:00
 description: 'usages'
 categories:
   - '其他'
