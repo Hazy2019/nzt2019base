@@ -1,5 +1,5 @@
 ---
-title: "智能指针1 shared_ptr"
+title: "智能指针1: shared_ptr梳理"
 date: 2018-12-01T21:26:49+08:00
 description: ""
 categories:
@@ -14,11 +14,14 @@ pager: true # Enable pager navigation (prev/next) for specific page
 toc: true # Enable Table of Contents for specific page
 ---
 
-本文提及了：
-- shared_ptr引入背景
+本文提及并讨论了：
+- `shared_ptr`引入背景
 - 删除器
 - 线程安全性
 - `std::ref`
+- 优先使用`make_shared`
+- `enable_shared_from_this`
+- 观察者模式和event-listener
 
 ## 缘起
 
@@ -186,6 +189,9 @@ TEST(sharedptr,threadsafety) {
 [thread 705062] info [shared_ptr.cc:129] do #1 ...
 [thread 705061] info [shared_ptr.cc:116] #1 of App is destoried!
 ```
+## `std::ref`
 
 ## make_shared
 ...
+
+## enable_shared_from_this
