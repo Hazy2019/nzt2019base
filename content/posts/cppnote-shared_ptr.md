@@ -1,12 +1,11 @@
 ---
-title: "智能指针1: shared_ptr梳理"
+title: "智能指针1: shared_ptr使用梳理"
 date: 2018-12-01T21:26:49+08:00
 description: ""
 categories:
   - "c++"
 tags:
   - "shared_ptr"
-
 lead: "智能指针" # Lead text
 comments: false # Enable Disqus comments for specific page
 authorbox: true # Enable authorbox for specific page
@@ -33,12 +32,12 @@ toc: true # Enable Table of Contents for specific page
 - 不配对的free&delete会有什么问题？
   是未定义行为.可以参考：
   - https://stackoverflow.com/questions/10854210/behaviour-of-malloc-with-delete-in-c
-  
   - https://isocpp.org/wiki/faq/freestore-mgmt
 
 ## 基本原理 & 使用
 
 - 需要一个东西来管理裸指针（资源），当没有人引用资源时，自动地释放它.  --- `std::shared_ptr`
+- 使用略。
 
 ## 删除器
 - shared_ptr可以自定义删除器（deleter），用来定义释放行为. 学习到删除器时，有个疑问是其类型在哪里定义的，查看boost的实现如下：
@@ -84,7 +83,7 @@ toc: true # Enable Table of Contents for specific page
   > - 可调用对象: 包括函数/函数指针/重载了调用运算符的类（Functor）/lambda表达式
   > - 可调用对象统一可用`std::function`来表示其类型
 
-- 利用删除器可以有一些trick，如实现类似golang的`defer`
+- 利用删除器可以有一些trick，比如实现类似golang的`defer`
   ```
   // some trick
   // order of destruction of stack variable: https://stackoverflow.com/questions/14688285/c-local-variable-destruction-order
@@ -189,9 +188,45 @@ TEST(sharedptr,threadsafety) {
 [thread 705062] info [shared_ptr.cc:129] do #1 ...
 [thread 705061] info [shared_ptr.cc:116] #1 of App is destoried!
 ```
-## `std::ref`
-
 ## make_shared
-...
+老生常谈了，再简要总结下：
+- 效率：
+使用`auto x = std::make_shared<type>(xx1,xx2,xx3);`会比使用`std::shared_ptr x(new type(xx1,xx2,xx3));`:
+减少1次堆内存的申请.
+后者需要申请1次type类型本身对象，和shared_ptr本身对象（控制块）2次.
+- 原理：
+两次new，第一次申请type+控制块大小的一片内存，第二次利用`placement new`，把type类型数据构造在指定的内存地址。
+- 缺陷：
+如果有`weak_ptr`引用了使用`make_shared`申请出来的智能指针对象，那么其生命周期会被`weak_ptr`延长，原因是"控制块"的生命周期等于`weak_ptr`的生命周期。
+
+  
+> https://stackoverflow.com/questions/20895648/difference-in-make-shared-and-normal-shared-ptr-in-c
+> https://blog.csdn.net/SuWanWorld/article/details/103940013
+> https://www.cnblogs.com/leijiangtao/p/12046333.html
 
 ## enable_shared_from_this
+
+使用智能指针还有个问题：就是任何`this`指针不能交给`shared_ptr`管理，会导致double-free,如：
+
+```
+class App2 : public App {
+  public:
+    std::shared_ptr<App2> App2Fuck() {
+      std::shared_ptr<App2> x(this); // would cause this to be destoried twice!
+      return x;
+    }
+};
+```
+那如果强行需要在类的内部返一个`shared_ptr`出来，c++提供了`enable_shared_from_this`来做这个事（最初是boost实现的，后来被合进c++11了）。
+
+上面这个例子毫无实用价值，具体是什么场景需要用到这个，我将在另一篇文里讨论。（或check：muduo 1.11节）
+
+- HOWTO： https://stackoverflow.com/questions/712279/what-is-the-usefulness-of-enable-shared-from-this
+
+## Reference
+  - https://stackoverflow.com/questions/10854210/behaviour-of-malloc-with-delete-in-c
+  - https://isocpp.org/wiki/faq/freestore-mgmt
+  - order of destruction of stack variable: https://stackoverflow.com/questions/14688285/c-local-variable-destruction-order
+  - https://www.boost.org/doc/libs/1_75_0/libs/smart_ptr/doc/html/smart_ptr.html#shared_ptr_thread_safety
+  - https://stackoverflow.com/questions/712279/what-is-the-usefulness-of-enable-shared-from-this
+  - muduo 1.11
