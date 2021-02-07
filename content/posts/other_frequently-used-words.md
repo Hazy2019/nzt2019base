@@ -38,7 +38,8 @@ tags:
  - incorporate
  - provision
  - complement 
- 
+ - versatility
+
  cplusplus concepts:
  - pod types
  - non-trivial types
