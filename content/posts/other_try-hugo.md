@@ -80,3 +80,17 @@ std::thread(SlotDeleter::do_purge_slots,
 | col 3 is `fuck()` | some wordy text |         $1600 |
 | col 2 is          |    centered     |           $12 |
 | zebra stripes     |    are neat     |            $1 |
+
+
+## mathjax
+
+test,
+
+\begin{align}
+\sqrt{37} & = \sqrt{\frac{73^2-1}{12^2}} \\
+ & = \sqrt{\frac{73^2}{12^2}\cdot\frac{73^2-1}{73^2}} \\ 
+ & = \sqrt{\frac{73^2}{12^2}}\sqrt{\frac{73^2-1}{73^2}} \\
+ & = \frac{73}{12}\sqrt{1 - \frac{1}{73^2}} \\ 
+ & \approx \frac{73}{12}\left(1 - \frac{1}{2\cdot73^2}\right)
+\end{align}
+
