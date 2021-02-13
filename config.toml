@@ -24,7 +24,7 @@ publishdir = "Hazy2019.github.io"
 
 [Author] # Used in authorbox
   name = "FatiaoX"
-  bio = "c/c++ programmer"
+  bio = "a c/c++ programmer"
   avatar = "img/avatar.png"
 
 [Params]
