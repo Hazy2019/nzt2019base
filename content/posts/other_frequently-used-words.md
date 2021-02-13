@@ -39,6 +39,8 @@ tags:
  - provision
  - complement 
  - versatility
+ - pivot 支点
+
 
  cplusplus concepts:
  - pod types
