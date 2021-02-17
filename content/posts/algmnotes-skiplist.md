@@ -1,13 +1,12 @@
 ---
 title: "算法笔记： 跳表"
-date: 2019-03-01
+date: 2020-03-01
 description: ""
 categories:
   - "algorithm"
 tags:
-  - "最长回文子串"
-  - "DP"
-lead: "DP" # Lead text
+  - "skiplist"
+lead: "skiplist" # Lead text
 comments: false # Enable Disqus comments for specific page
 authorbox: true # Enable authorbox for specific page
 mathjax: true
