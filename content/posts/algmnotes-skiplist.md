@@ -35,7 +35,7 @@ toc: true # Enable Table of Contents for specific page
 
 Q：给定某个skiplist的节点$x$,其含有以下4个level的next值：a(lvl=3),b(lvl=2),c(lvl=1),d(lvl=0),问：x,a,b,c,d之间满足什么关系？
 
-A：$a > b > c > d > x$ (是否带等号看具体实现), 且lvl指向的子链表含有的元素的范围是 $$(next[lvl],next[lvl+1])$$
+A： $ a > b > c > d > x $  (是否带等号看具体实现), 且lvl指向的子链表含有的元素的范围是 $$(next[lvl],next[lvl+1])$$
 
 #### key-idea
 - 跳表 = 有序链表 + 索引节点
