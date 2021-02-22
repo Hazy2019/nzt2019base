@@ -28,3 +28,4 @@ widgets: # Enable sidebar widgets in given order per page
 - [ ] db笔记：paxos
 - [ ] cpp笔记：一些常见的oop设计模式
 - [ ] cpp笔记：rvalue-reference
+- [ ] cpp笔记：内存序和内存屏障v2
