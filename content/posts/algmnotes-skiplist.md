@@ -1,5 +1,5 @@
 ---
-title: "算法笔记： 跳表"
+title: "算法笔记： 跳表(r1)"
 date: 2020-03-01
 description: ""
 categories:
@@ -32,10 +32,12 @@ toc: true # Enable Table of Contents for specific page
 #### property of a node
 
 {{< figure src="../../resources/skiplist-node.png" title="a node of skiplist" >}}
+- 性质1：
+  - Q：给定某个skiplist的节点$x$,其含有以下4个level的next值：a(lvl=3),b(lvl=2),c(lvl=1),d(lvl=0),问：x,a,b,c,d之间满足什么关系？
+  - A： $$ a > b > c > d > x $$  (是否带等号看具体实现), 且lvl指向的子链表含有的元素的范围是 $$(next[lvl],next[lvl+1])$$
 
-Q：给定某个skiplist的节点$x$,其含有以下4个level的next值：a(lvl=3),b(lvl=2),c(lvl=1),d(lvl=0),问：x,a,b,c,d之间满足什么关系？
-
-A： $ a > b > c > d > x $  (是否带等号看具体实现), 且lvl指向的子链表含有的元素的范围是 $$(next[lvl],next[lvl+1])$$
+- 性质2：
+L0层节点是整个跳表的所有数据，每上一层都是前一层的子集。
 
 #### key-idea
 - 跳表 = 有序链表 + 索引节点
@@ -53,7 +55,7 @@ A： $ a > b > c > d > x $  (是否带等号看具体实现), 且lvl指向的子
 $$
 对于 i \in [0，currmax], 有：  \\
 prev[i].key < key  \qquad 且 \\
-prev[i].next[i] > key or prev[i].next[i] == null \\
+prev[i].next[i] > key 或 prev[i].next[i] == null \\
 $$
   (PS：给定key和某skiplist，每一层应该只有1个这样的节点)
 
@@ -89,7 +91,7 @@ $$
 ### 几个疑问
 - 对于std::atomic这种非POD类型，也能玩这种`struct hack`吗?
 - 利用原子变量进行无锁化，需要十分注意memory-order, 那么acqure-release语义到底是什么东西？
-- 其他机种memtable的实现优劣？
+- 其他几种memtable的实现优劣？
 
 这些超出本文讨论范围了，下次在讨论罢。
 
