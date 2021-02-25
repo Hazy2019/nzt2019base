@@ -43,7 +43,7 @@ using Widget = int;
 Widget&& var1 = Widget();
 auto&& var2 = var1;
 // 变量`var1`的类型是右值引用
-// 表达式`var1`可以被取址
+// 表达式`var1`可以被取址，
 ```
 
 
