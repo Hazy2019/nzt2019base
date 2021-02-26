@@ -67,7 +67,8 @@ toc: true # Enable Table of Contents for specific page
   //
   // shared_ptr will release p by calling d(p)
   //
-
+  // 构造函数只需要提供Y作为模板类型参数，
+  // D不需要提供，可由构造函数的第二个参数推导得到
   template<class Y, class D> shared_ptr( Y * p, D d ): px( p ), pn( p, d )
   {
       boost::detail::sp_deleter_construct( this, p );
@@ -75,7 +76,7 @@ toc: true # Enable Table of Contents for specific page
   ....
   ```
   关于删除器的一些情报：
-  1. 其类型是一个可调用对象（callable），take a parameter of T*
+  1. 其类型是一个可调用对象（callable），且接受参数只有一个为Y*(take a parameter of Y*, as shown before⬆️)
   2. 必须是可拷贝的（构造`shared_ptr`时涉及一次删除器的拷贝，如果有的话）
   3. 必须是no throw的
 
@@ -86,7 +87,6 @@ toc: true # Enable Table of Contents for specific page
 - 利用删除器可以有一些trick，比如实现类似golang的`defer`
   ```
   // some trick
-  // order of destruction of stack variable: https://stackoverflow.com/questions/14688285/c-local-variable-destruction-order
 
   std::shared_ptr<void> a1(nullptr, [](void*){
         log_info("this is a defer...");
@@ -107,9 +107,16 @@ toc: true # Enable Table of Contents for specific page
 
 ## 线程安全
 
+- 只有控制块本身是线程安全.（It is only the control block itself which is thread-safe.）
+
+- why accessing  std::shared_ptr should be protected by mutex?
+ - https://blog.csdn.net/Solstice/article/details/8547547
+ - https://stackoverflow.com/questions/14482830/stdshared-ptr-thread-safety
+
 - 同一个`shared_ptr`可以被多个线程同时读取
 - 同一个`shared_ptr`被多个线程同时读写时，需要加锁
-- 
+
+------- 
 
 > - moduo1.9节
 > - https://www.boost.org/doc/libs/1_75_0/libs/smart_ptr/doc/html/smart_ptr.html#shared_ptr_thread_safety
