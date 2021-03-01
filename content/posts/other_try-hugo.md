@@ -27,6 +27,7 @@ widgets: # Enable sidebar widgets in given order per page
 - basic configs
 - basic markdown
 - config the markup(code pieces)
+<!--more-->
 - insert an image by ref as in static or by a shortcode
 - organizations (page resources/bundles, )
 

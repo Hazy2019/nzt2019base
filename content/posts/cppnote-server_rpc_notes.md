@@ -21,6 +21,7 @@ toc: true # Enable Table of Contents for specific page
   a. io线程在收到一个包后，会先把自己设为idle（具体点就是摘掉本线程上的可读写事件），扔给worker线程处理完成后再加回来。
 
 - A的cli端的处理是同步的：
+<!--more-->
   a. 一条连接发完一个包，会等待对应的收包（如果需要的话）。
 
 结合上述两点，整体上看这个系统的吞吐不会很高，起码网络rpc这块，由于基本上pipeline的长度只有1，我甚至怀疑后端被打满会比较吃力。

@@ -19,6 +19,7 @@ toc: true # Enable Table of Contents for specific page
 note:
 >顺序型容器
 - deque插入or删除操作会导致迭代器失效.
+<!--more-->
 - <B>list则不会</B>（参考其实现）（迭代器&元素的引用都不会随着插入/删除操作而失效）.
 
 --------

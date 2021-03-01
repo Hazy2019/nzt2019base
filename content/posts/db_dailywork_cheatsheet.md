@@ -9,6 +9,7 @@
 
 - sar
 
+<!--more-->
 - iostat
 
 - iotop

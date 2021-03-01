@@ -19,6 +19,7 @@ read lock
 write lock
 long duration lock
 short duration lock
+<!--more-->
 predicate lock
 
 

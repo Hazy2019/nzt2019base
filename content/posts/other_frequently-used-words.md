@@ -13,6 +13,7 @@ tags:
  - quote
  - snippet
  - typo
+<!--more-->
  - delimiter
  - bundle
  - anchor

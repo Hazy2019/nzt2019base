@@ -11,4 +11,5 @@ comments: false # Enable Disqus comments for specific page
 - debuging
 - database system
 - distribution system
+<!--more-->
  - <i>to be continue...</i>
