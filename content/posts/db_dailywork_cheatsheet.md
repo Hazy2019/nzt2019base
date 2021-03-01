@@ -23,7 +23,21 @@
 
 - systemtap
 
-- py scripts snippet
+### py scripts snippet
+```
+#!/usr/bin/python3
+# -*- coding: utf-8 -*-
+...
+
+if __name__ == "__main__":
+   ...
+```
+
+### vim
+set list
+set nolist
+noh
+
 
 - gcc
 

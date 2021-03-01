@@ -13,6 +13,8 @@ pager: true # Enable pager navigation (prev/next) for specific page
 toc: true # Enable Table of Contents for specific page
 ---
 
+几年前，整理了一份rvalue相关笔记：[以前的一份笔记](https://zhuanlan.zhihu.com/p/111826434)，近期整理思绪时，发现某些问题还是没有弄清楚。
+
 ## `Universal Reference`
 - Q: 什么是`Universal Reference`?
   A: 形如`T&&`, `T`不含有任何的cv限定符, 且`T`需要被推导
@@ -42,14 +44,8 @@ auto&& var2 = var1;
 ```
 using Widget = int;
 Widget&& var1 = Widget();
-<<<<<<< HEAD
-auto&& var2 = var1;
-// 变量`var1`的类型是右值引用
-// 表达式`var1`可以被取址，
-=======
 // 变量`var1`的类型是右值引用。
 // 表达式`var1`可以被取地址，因此`var1`是左值。
->>>>>>> 55808c00b77e34e6ee32488efd8ed6dcdad4fc68
 ```
 
 > (cpp-ref)Even if the variable's type is rvalue reference, the expression consisting of its name is an lvalue expression;

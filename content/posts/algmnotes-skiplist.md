@@ -1,5 +1,5 @@
 ---
-title: "算法笔记： 跳表(r1)"
+title: "算法笔记：跳表（r1）"
 date: 2020-03-01
 description: ""
 categories:

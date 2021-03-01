@@ -14,7 +14,7 @@ pager: true # Enable pager navigation (prev/next) for specific page
 toc: true # Enable Table of Contents for specific page
 ---
 
-## 实现一个skiplist
+## 实现一个简单skiplist
 
 上一篇笔记里回顾了跳表的性质和思想，并且看了一眼rocksdb里的skiplist实现。
 
@@ -57,4 +57,4 @@ N3:l0->N5:l0
 
 当然这个实现可以用于leetcode1206的答题。加个warpper就可以了，可参考[相关测试](https://github.com/Hazy2019/cppcraft/blob/master/src/educational/skiplist_test.cc)。
 
-以上。
+以上，望大神轻喷。
