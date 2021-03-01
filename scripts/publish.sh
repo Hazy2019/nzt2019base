@@ -6,6 +6,7 @@ do
 done
 
 if [ "`git status content | grep modified`" != "" ]; then
+  echo "update content"
   git add ./content
   git commit -m "add more tag"
   git push cn master
