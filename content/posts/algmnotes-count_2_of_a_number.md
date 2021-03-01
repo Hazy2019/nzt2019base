@@ -24,6 +24,7 @@ toc: true # Enable Table of Contents for specific page
 
 ### 暴力
 
+<!--more-->
 依次求解1..n每个数含有多少个2，最后求和。
 
 给定数字n，其位数（10进制）为`logn`，具体的时间复杂度大致如下：

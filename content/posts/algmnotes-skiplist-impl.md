@@ -22,6 +22,7 @@ toc: true # Enable Table of Contents for specific page
 
 该skiplist的特性：
 - 不支持concurrent
+<!--more-->
 - 没有struct hack
 - 没有fast path
 - 因为使用了template所以是header only的

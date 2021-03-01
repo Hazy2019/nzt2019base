@@ -18,6 +18,7 @@ toc: true # Enable Table of Contents for specific page
 - 删除器
 - 线程安全性
 - `std::ref`
+<!--more-->
 - 优先使用`make_shared`
 - `enable_shared_from_this`
 - 观察者模式和event-listener

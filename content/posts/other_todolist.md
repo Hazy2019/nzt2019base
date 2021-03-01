@@ -22,6 +22,7 @@ widgets: # Enable sidebar widgets in given order per page
 - [ ] 运维总结:tcpdump抓包
 - [ ] 运维总结:tsar/sar/iotop/iostat/top/perf top 
 - [ ] db笔记：lsm和btree的读/写放大分析
+<!--more-->
 - [ ] db笔记：事务 --> doing
 - [ ] db笔记：分布式事务
 - [ ] db笔记：2pc和percalator

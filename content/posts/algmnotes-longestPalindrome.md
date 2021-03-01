@@ -23,6 +23,7 @@ toc: true # Enable Table of Contents for specific page
 
 DP的关键是梳理出问题与子问题的关系。
 
+<!--more-->
 `F[i,j]`表示i..j的最长回文串的长度，那么跟其子问题的关系如下：
 
 ```

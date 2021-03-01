@@ -23,6 +23,7 @@ toc: true # Enable Table of Contents for specific page
 相对于红黑树，它的优势我认为是实现简单，并且容易无锁化。
 
 本文主要讨论：
+<!--more-->
 - skiplist一些性质分析
 - skiplist核心思想&核心问题
 - rocksdb中的跳表实现分析

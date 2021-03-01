@@ -19,6 +19,7 @@ toc: true # Enable Table of Contents for specific page
   G1.
   >If a variable or parameter is declared to have type T&& for some deduced type T, that variable or parameter is a universal reference.
 
+<!--more-->
 - examples:
 ```
 using Widget = int;
