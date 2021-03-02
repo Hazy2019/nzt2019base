@@ -4,7 +4,6 @@ enableEmoji = true
 languageCode = "zh-cn"
 DefaultContentLanguage = "zh-cn"
 title = "Bad Fd"
-#theme = "dream"
 theme = "Mainroad"
 paginate = "10" # Number of posts per page
 publishdir = "Hazy2019.github.io"

@@ -1,16 +1,16 @@
 ---
-title: "db笔记 - sse"
-date: 2021.01.03T08:26:49+08:00
-description: "sse"
+title: 'db笔记 - sse'
+date: 2021-02-01
+description: 'sse'
 categories:
-  - "DB"
+  - 'DB'
 tags:
-  - "sse"
-  - "compile flags"
+  - 'sse'
+  - 'compile flags'
 authorbox: true
 pager: true
 toc: true
-sidebar: "right"
+sidebar: 'right'
 ---
 
 ## background
@@ -21,6 +21,7 @@ at linking stage where encountering errors of lack of some instructions such as:
 >but what the fuck is USE_SSE ?
 
 <!--more-->
+
 ## compile rocksdb
 
 `USE_SSE` is used to set some gcc flags, see what `/build_tools/build_detect_platform` says:
