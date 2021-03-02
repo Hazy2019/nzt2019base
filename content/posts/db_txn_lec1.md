@@ -6,7 +6,6 @@ categories:
   - "DB"
 tags:
   - "txn"
-comments: false
 authorbox: true
 pager: true
 toc: true

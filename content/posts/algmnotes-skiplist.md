@@ -7,7 +7,6 @@ categories:
 tags:
   - "skiplist"
 lead: "skiplist" # Lead text
-comments: false # Enable Disqus comments for specific page
 authorbox: true # Enable authorbox for specific page
 mathjax: true
 pager: true # Enable pager navigation (prev/next) for specific page

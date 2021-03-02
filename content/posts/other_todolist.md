@@ -5,7 +5,6 @@ description: 'usages'
 categories:
   - '其他'
 
-comments: false # Enable Disqus comments for specific page
 authorbox: true # Enable authorbox for specific page
 pager: true # Enable pager navigation (prev/next) for specific page
 toc: true # Enable Table of Contents for specific page

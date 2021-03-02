@@ -7,7 +7,6 @@ categories:
 tags:
   - "数位枚举"
 lead: "枚举" # Lead text
-comments: false # Enable Disqus comments for specific page
 authorbox: true # Enable authorbox for specific page
 pager: true # Enable pager navigation (prev/next) for specific page
 mathjax: true # Enable MathJax for specific page

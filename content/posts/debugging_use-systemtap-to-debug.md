@@ -8,7 +8,6 @@ tags:
   - "systemtap"
   - "debug"
 lead: how to use systemtap
-comments: false
 authorbox: true
 pager: true
 toc: true

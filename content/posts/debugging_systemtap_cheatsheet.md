@@ -7,7 +7,6 @@ categories:
 tags:
   - "systemtap"
   - "debug"
-comments: false
 authorbox: true
 pager: true
 toc: true
