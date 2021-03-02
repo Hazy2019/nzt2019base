@@ -51,6 +51,13 @@ publishdir = "Hazy2019.github.io"
   highlightColor = "" # Deprecated in favor of .Site.Params.style.vars.highlightColor
   #customCSS = ["css/custom.css"] # Include custom CSS files
   #customJS = ["js/custom.js"] # Include custom JS files
+  utteranc_comment = true
+  utteranc_repo = "Hazy2019/Hazy2019.github.io"
+  utteranc_src = "https://utteranc.es/client.js"
+  utteranc_issue_term = "pathname"
+  utteranc_label = "utteranc-comment"
+  utteranc_theme = "github-light"
+  utteranc_cross_origin = "anonymous"
 
 [Params.style.vars]
   highlightColor = "#2de2d9" # Override highlight color

@@ -28,7 +28,7 @@ toc: true # Enable Table of Contents for specific page
 
 ### 锁
 
-- thrift内部随处可见都是锁：例如，worker线程池公用一条处理队列，这个队列是由一把大锁来保护的。
+- thrift(NonBlockingServer)内部随处可见都是锁：例如，worker线程池公用一条处理队列，这个队列是由一把大锁来保护的。
 
 基本这块我没发现有太大的优化，可以预想的是，随着io线程和worker线程的增加，性能可能无法得到线性扩展。
 
