@@ -10,7 +10,7 @@ if [ "`git status content | grep modified`" != "" ]; then
   git add ./content
   git commit -m "add more tag"
   git push cn master
-  git push github master
+  git push origin master
 fi
 
 hugo -D -v
