@@ -24,8 +24,8 @@ publishdir = "Hazy2019.github.io"
     tabWidth = 4
 
 [Author] # Used in authorbox
-  name = "FatiaoX"
-  bio = "a c/c++ programmer"
+  name = "RadianK"
+  bio = "a c/c++ programmer."
   avatar = "img/avatar.png"
 
 [Params]
@@ -64,7 +64,7 @@ publishdir = "Hazy2019.github.io"
 [Params.logo]
   image = "img/logo.png" # Logo image. Path relative to "static"
   title = "Badfd" # Logo title, otherwise will use site title
-  subtitle = "a place to meet myself"# Logo subtitle
+  subtitle = "a place to note things"# Logo subtitle
 
 [Params.sidebar]
   home = "right" # Configure layout for home page
