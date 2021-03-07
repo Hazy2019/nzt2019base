@@ -17,6 +17,7 @@ sidebar: "right"
 https://en.cppreference.com/w/cpp/atomic/memory_order
 https://www.modernescpp.com/index.php/acquire-release-semantic
 
+<!--more-->
 1. transaction isolation level (30% p1 done)
 2. time of distributed system: TSO from percolator; logical clock(0%)
 https://www.jianshu.com/p/8500882ab38c
