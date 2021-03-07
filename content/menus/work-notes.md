@@ -1,10 +1,10 @@
 ---
-title: "Work"
+title: "Links"
 date: 2016-10-07T21:26:49+08:00
-description: "about"
+description: "links"
 ---
 
-### Work Topics
+### work topics
 - c++
 - debuging
 - database system
