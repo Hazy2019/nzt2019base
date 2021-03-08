@@ -77,6 +77,7 @@ auto&& var2 = var1;
 - 场景是某个函数具有形如`template<class T> void f(T&& a);`的形式，根据传入的a的类型，T是如何推导出来的？
 
 >`G4`.
+
 >```
 >Deduce Rules:
 >T&  &&  => T& 

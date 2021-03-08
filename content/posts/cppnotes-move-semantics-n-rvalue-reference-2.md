@@ -57,10 +57,15 @@ G1-G4:
 {{< figure src="../../resources/value-categories.png" title="VALUE CATEGORIES" >}}
 与G2不冲突.
 
-lvalue - 左值，具名且不可移动。
+lvalue - 左值，具名且不可移动
+
 xvalue - 将亡值， 具名可移动，即将被销毁的值 _（其实感觉上右值引用就是xvalue）_ 。如：std::move产生出来的值...
 
 glvalue - 泛左值，具名.
+
+prvalue - 纯右值，可移动不具名.
+
+rvalue - 右值，可移动.
 
 
 
