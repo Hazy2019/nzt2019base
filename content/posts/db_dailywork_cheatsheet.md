@@ -12,8 +12,19 @@ toc: true
 sidebar: "right"
 ---
 
-## cheatsheet
-  my cheatsheet for daily work usages.
+日常cheatsheet～
+
+- run valgrind for a program
+
+```
+valgrind --tool=memcheck --leak-check=full --log-file=leak.log --soname-synonyms=somalloc=NONE <some_exe> [<some_exe_args>]
+```
+
+- `tee` with a pipe output to screen and a file
+```
+echo "hello" | tee abc.txt
+```
+
 
 - ps
 

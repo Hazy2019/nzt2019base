@@ -19,6 +19,7 @@ G1-G4:
   >If a variable or parameter is declared to have type T&& for some deduced type T, that variable or parameter is a universal reference.
   
   >`G2`.
+<!--more-->
   > If you can take the address of an expression, the expression is an lvalue.
   > If the type of an expression is an lvalue reference (e.g., T& or const T&, etc.), that expression is an lvalue. 
   > Otherwise, the expression is an rvalue.  Conceptually (and typically also in fact), rvalues correspond to temporary objects, such as those returned from functions or created through implicit type conversions. Most literal values are also rvalues.
