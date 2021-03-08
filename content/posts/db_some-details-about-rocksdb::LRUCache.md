@@ -20,6 +20,7 @@ completed: false
 
 ```
 68   Slice key() const {
+<!--more-->
 69     // For cheaper lookups, we allow a temporary Handle object
 70     // to store a pointer to a key in "value".
 71     if (next == this) {
