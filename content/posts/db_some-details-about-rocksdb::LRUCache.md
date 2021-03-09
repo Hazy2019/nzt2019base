@@ -139,7 +139,7 @@ int main() {
 EOF
 ```
 最后，如果用template的话，就非常符合直观感受了：
-```
+```c++
 #include <iostream>
 struct a{};
 template<typename T>
