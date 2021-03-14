@@ -20,6 +20,13 @@ sidebar: "right"
 valgrind --tool=memcheck --leak-check=full --log-file=leak.log --soname-synonyms=somalloc=NONE <some_exe> [<some_exe_args>]
 ```
 
+- run tcpdump to capture mysql queries:
+```
+tcpdump -r /tmp/a.cap -A -S -n -nn  | grep -i -E "select|insert|update|delete|replace" | sed 's%\(.*\)\([.]\{4\}\)\(.*\)%\3%' | less
+```
+
+
+
 - `tee` with a pipe output to screen and a file
 ```
 echo "hello" | tee abc.txt
