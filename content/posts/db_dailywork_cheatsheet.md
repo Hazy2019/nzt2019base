@@ -25,6 +25,27 @@ valgrind --tool=memcheck --leak-check=full --log-file=leak.log --soname-synonyms
 tcpdump -r /tmp/a.cap -A -S -n -nn  | grep -i -E "select|insert|update|delete|replace" | sed 's%\(.*\)\([.]\{4\}\)\(.*\)%\3%' | less
 ```
 
+- python scripts:
+```
+python -m SimpleHTTPServer 8123
+wget -c -r -nH -m --limit-rate=400m "http://ip:8123/xxxx"
+```
+
+```
+python -c 'from zlib import crc32; print crc32("1476777") % 1024'
+```
+
+```
+#!/usr/bin/python
+# -*- coding: UTF-8 -*-
+import sys
+import json
+data = ""
+for line in sys.stdin:
+        data += line
+text = json.loads(data)
+print(text)
+```
 
 
 - `tee` with a pipe output to screen and a file

@@ -53,7 +53,7 @@ _ps: this is not timestamp oracle!_
 
 - 问题场景：一般场景下不涉及内存序这类问题，不过在Lock-Free和高性能编程中需要考虑。
 
-- 在C++11以前或使用C时，问题如何解决：人为地使用一些编译器屏障（针对2的）和内存屏障（针对1的）.
+- 在C++11以前或使用C时，问题如何解决：人为地使用一些编译器屏障（针对2的）和内存屏障（针对1的）.来实现某些同步。
   
   - 编译器屏障一般是类似以下这种内联汇编：
   ```c++
@@ -94,8 +94,21 @@ _ps: this is not timestamp oracle!_
   #endif
   ```
 
+- c++11之后：标准里引入了若干种内存序模型，并且直接把底层实现给你屏蔽掉了，开发者再也不用自己去写屏障了。
+  
+  我个人使用最多的是以下三种：线性一致性/Release-Acquire一致性/Relaxed一致性，其一致性程度逐步减弱。注意：这几种一致性模型是指软件层面编译器提供这个保证。如你使用relaxed一致性，可能由于底层硬件架构的不同，实际上提供更强的一致性保证，如x86提供TSO一致性。
 
-- c++11之后：标准里直接引入了若干种内存序，并且直接把底层实现给你屏蔽掉了，开发者再也不用自己去写屏障了。
+  - Sequentially-consistent ordering：
+    最高级别一致性，线性一致性，个人理解上就是所有打上这个标记的对象的存（store）,取（load）遵循全局时序。
+
+  - Release-Acquire ordering: 
+    打上memory_order_release的写（store）操作所属线程的在其之前（Happen-Before）的所有内存写操作能确保在打上memory_order_acquire的读（load）操作
+    所属的线程里可见（visible side-effects）。
+
+    >If an atomic store in thread A is tagged memory_order_release and an atomic load in thread B from the same variable is tagged memory_order_acquire, all memory writes (non-atomic and relaxed atomic) that happened-before the atomic store from the point of view of thread A, become visible side-effects in thread B. That is, once the atomic load is completed, thread B is guaranteed to see everything thread A wrote to memory.
+
+  - Relaxed ordering: 
+    只提供原子性，不提供其他一致性保证。
 
 
 ## References
