@@ -15,4 +15,4 @@ sidebar: "right"
 
 {{<figure src="../../resources/tv-journal.jpg">}}
 
-好了，在ð评论区告诉我你的选择吧 ð
+好了，在下方:point_down:评论区:point_down:，告诉我想去哪里吧 :smiley:
