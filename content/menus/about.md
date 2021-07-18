@@ -13,9 +13,9 @@ comments: false # Enable Disqus comments for specific page
 ### 站在巨人的肩膀上...
 
 - [1024cores](https://www.1024cores.net)
-- [ongardie](ongardie.net)
+- [ongardie](http://ongardie.net)
 <!--more-->
-- [stratos](stratos.seas.harvard.edu)
+- [stratos](https://stratos.seas.harvard.edu)
 - [wanghenshui](https://wanghenshui.github.io/)
 - [kernelmaker](https://kernelmaker.github.io)
 
