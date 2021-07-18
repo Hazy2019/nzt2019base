@@ -12,11 +12,11 @@ comments: false # Enable Disqus comments for specific page
 
 ### 站在巨人的肩膀上...
 
-- [1024cores](https://1024cores.com)
+- [1024cores](https://www.1024cores.net)
 - [ongardie](ongardie.net)
 <!--more-->
+- [stratos](stratos.seas.harvard.edu)
 - [wanghenshui](wanghenshui.github.io)
 - [kernelmaker](kernelmaker.github.io)
-- [stratos](stratos.seas.harvard.edu)
 
 待续...
