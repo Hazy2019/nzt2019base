@@ -16,7 +16,7 @@ comments: false # Enable Disqus comments for specific page
 - [ongardie](ongardie.net)
 <!--more-->
 - [stratos](stratos.seas.harvard.edu)
-- [wanghenshui](wanghenshui.github.io)
-- [kernelmaker](kernelmaker.github.io)
+- [wanghenshui](https://wanghenshui.github.io/)
+- [kernelmaker](https://kernelmaker.github.io)
 
 待续...
