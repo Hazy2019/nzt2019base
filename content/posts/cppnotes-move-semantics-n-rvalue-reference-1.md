@@ -10,6 +10,7 @@ tags:
 authorbox: true # Enable authorbox for specific page
 pager: true # Enable pager navigation (prev/next) for specific page
 toc: true # Enable Table of Contents for specific page
+weight: 2
 ---
 
 几年前，整理了一份rvalue相关笔记：[以前的一份笔记](https://zhuanlan.zhihu.com/p/111826434)，梳理近况时，发现某些问题还是没有弄清楚。

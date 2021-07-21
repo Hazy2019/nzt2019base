@@ -8,6 +8,7 @@ tags:
  - "memory fence"
 pager: true
 sidebar: "right"
+weight: 2
 ---
 
 ## c++内存序

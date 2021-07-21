@@ -10,6 +10,7 @@ tags:
 authorbox: true # Enable authorbox for specific page
 pager: true # Enable pager navigation (prev/next) for specific page
 toc: true # Enable Table of Contents for specific page
+weight: 2
 ---
 
 回顾：

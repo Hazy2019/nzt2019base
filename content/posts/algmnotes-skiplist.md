@@ -11,6 +11,7 @@ authorbox: true # Enable authorbox for specific page
 mathjax: true
 pager: true # Enable pager navigation (prev/next) for specific page
 toc: true # Enable Table of Contents for specific page
+weight: 1
 ---
 
 这是读书时一篇旧文搬运.几年后再次回顾下算法.

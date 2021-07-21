@@ -10,6 +10,7 @@ authorbox: true
 pager: true
 toc: true
 sidebar: "right"
+weight: 1
 ---
 
 ## 锁
