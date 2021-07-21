@@ -11,6 +11,7 @@ pager: true # Enable pager navigation (prev/next) for specific page
 toc: true # Enable Table of Contents for specific page
 mathjax: true # Enable MathJax for specific page
 sidebar: "right" # Enable sidebar (on the right side) per page
+weight: 1
 widgets: # Enable sidebar widgets in given order per page
   - "search"
   - "recent"
